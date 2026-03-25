@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מערכת הסמכה: מנב"ט טכנולוגי 2026</title>
+    <style>
+        :root { --p: #1a2a6c; --s: #b21f1f; --a: #fdbb2d; --g: #27ae60; --bg: #0f172a; --card: #1e293b; --w: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #e2e8f0; margin: 0; padding: 20px; text-align: right; }
+        .container { max-width: 1200px; margin: 0 auto; background: rgba(30, 41, 59, 0.8); padding: 30px; border-radius: 20px; box-shadow: 0 0 50px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--a); padding-bottom: 20px; }
+        .header h1 { color: var(--a); margin: 0; font-size: 2.5em; }
+        .reg-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; }
+        input { background: #334155; border: 1px solid #475569; color: white; padding: 12px; border-radius: 8px; outline: none; width: 100%; box-sizing: border-box;}
+        .category-title { background: var(--p); color: white; padding: 10px; border-radius: 8px; margin-top: 30px; border-right: 5px solid var(--a); }
+        .dict-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 15px; }
+        .term-card { background: var(--card); border: 1px solid #334155; padding: 15px; border-radius: 12px; cursor: pointer; text-align: center; transition: 0.3s; position: relative; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+        .term-card:hover { border-color: var(--a); background: #2d3748; }
+        .term-card .desc { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--a); color: #000; padding: 10px; box-sizing: border-box; font-size: 0.85em; font-weight: bold; align-items: center; justify-content: center; border-radius: 11px; z-index: 10; }
+        .term-card.open .desc { display: flex; }
+        .story-box { background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 15px; line-height: 2.8; margin-bottom: 30px; border: 1px solid #334155; }
+        .drop-zone { display: inline-block; min-width: 100px; height: 30px; border-bottom: 2px dashed var(--a); vertical-align: middle; margin: 0 5px; text-align: center; }
+        .word-bank { background: #1e293b; padding: 15px; border-radius: 10px; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .drag-item { background: #e2e8f0; color: #0f172a; padding: 5px 12px; border-radius: 6px; cursor: grab; font-weight: bold; font-size: 0.85em; }
+        .quiz-q { margin-bottom: 20px; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.2); }
+        .btn { padding: 15px 30px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; width: 100%; font-size: 1.1em; }
+        .btn-check { background: var(--p); color: white; width: auto; margin-top: 10px; }
+        .btn-final { background: var(--g); color: white; font-size: 1.4em; margin-top: 40px;}
+        #finalReport { display: none; background: #064e3b; padding: 30px; border-radius: 15px; border: 2px solid var(--g); text-align: center; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>מילון מונחים - קורס מב"ט בסיסי</h1>
+        <p>מילון 96 מונחים | משימות גרירה (40%) | מבחן מסכם (60%)</p>
+    </div>
+
+    <div class="reg-box">
+        <input type="text" id="fn" placeholder="שם פרטי">
+        <input type="text" id="ln" placeholder="שם משפחה">
+        <input type="text" id="uid" placeholder="מספר זהות">
+        <input type="text" id="urole" placeholder="תפקיד">
+    </div>
+
+    <h2 style="color: var(--a);">📚 מילון מונחים (לחץ להסבר)</h2>
+    <div id="dictArea"></div>
+
+    <hr style="margin: 40px 0; opacity: 0.2;">
+
+    <h2 style="color: var(--a);">🕵️ משימות גרירה (40%)</h2>
+    
+    <div class="story-box" id="s1">
+        <h3>שלב 1: תשתית ורשתות</h3>
+        נכנסתי למתקן ה-<span class="drop-zone" data-ans="בלמ&quot;ס"></span>. בדקתי את ה-<span class="drop-zone" data-ans="חומרה"></span> הפיזי והפעלתי את ה-<span class="drop-zone" data-ans="PC"></span> המריץ <span class="drop-zone" data-ans="מערכת הפעלה"></span> מסוג <span class="drop-zone" data-ans="Windows"></span>. פתחתי את ה-<span class="drop-zone" data-ans="דפדפן"></span> והזנתי <span class="drop-zone" data-ans="Domain Name"></span> כדי להגיע ל-<span class="drop-zone" data-ans="אתר אינטרנט"></span> הארגוני. החיבור ל-<span class="drop-zone" data-ans="רשת האינטרנט"></span> עבר דרך <span class="drop-zone" data-ans="נתב"></span> ו-<span class="drop-zone" data-ans="מתג"></span> בתוך ה-<span class="drop-zone" data-ans="LAN"></span>.
+        <div class="word-bank" id="b1"></div>
+        <button class="btn btn-check" onclick="checkStory(1, 11)">בדוק שלב 1</button>
+        <span id="sc1" style="font-weight:bold; margin-right:10px; color:var(--g)"></span>
+    </div>
+
+    <div class="story-box" id="s2">
+        <h3>שלב 2: אבטחה וסייבר</h3>
+        ה-<span class="drop-zone" data-ans="SOC"></span> זיהה ניסיון <span class="drop-zone" data-ans="דיוג"></span>. השתמשנו ב-<span class="drop-zone" data-ans="Firewall"></span> לסינון וביצענו <span class="drop-zone" data-ans="הלבנה"></span> לקבצים. מערכת <span class="drop-zone" data-ans="DLP"></span> מנעה זליגה. הצוות ביצע <span class="drop-zone" data-ans="פורנזיקה"></span> וזיהה <span class="drop-zone" data-ans="Vulnerability"></span> בתוך <span class="drop-zone" data-ans="תוכנה"></span>.
+        <div class="word-bank" id="b2"></div>
+        <button class="btn btn-check" onclick="checkStory(2, 8)">בדוק שלב 2</button>
+        <span id="sc2" style="font-weight:bold; margin-right:10px; color:var(--g)"></span>
+    </div>
+
+    <div class="story-box" id="s3">
+        <h3>שלב 3: OT ובקרה</h3>
+        במתקן ה-<span class="drop-zone" data-ans="OT"></span>, ה-<span class="drop-zone" data-ans="PLC"></span> שולט על המכונות והמידע ב-<span class="drop-zone" data-ans="SCADA"></span>. נטרלנו <span class="drop-zone" data-ans="סטקסנט"></span> בתוך ה-<span class="drop-zone" data-ans="ICS"></span>. וידאנו <span class="drop-zone" data-ans="חתימה דיגיטלית"></span> וניהלנו <span class="drop-zone" data-ans="בקרת מבנה"></span> לפי <span class="drop-zone" data-ans="תקן"></span> מחמיר.
+        <div class="word-bank" id="b3"></div>
+        <button class="btn btn-check" onclick="checkStory(3, 8)">בדוק שלב 3</button>
+        <span id="sc3" style="font-weight:bold; margin-right:10px; color:var(--g)"></span>
+    </div>
+
+    <div class="story-box" id="s4">
+        <h3>שלב 4: קשר ואלקטרוניקה</h3>
+        הצוות משתמש ב-<span class="drop-zone" data-ans="תקשורת אלחוטית"></span> ומיקום <span class="drop-zone" data-ans="GPS"></span>. ה-<span class="drop-zone" data-ans="מכ&quot;ם"></span> קולט <span class="drop-zone" data-ans="גלי רדיו"></span>. זיהינו <span class="drop-zone" data-ans="האזנת סתר"></span> והגבנו ב-<span class="drop-zone" data-ans="ל&quot;א"></span>. המידע הועבר ב-<span class="drop-zone" data-ans="טלמטריה"></span> דרך <span class="drop-zone" data-ans="WiFi"></span> וכללו <span class="drop-zone" data-ans="איכון"></span> מדויק.
+        <div class="word-bank" id="b4"></div>
+        <button class="btn btn-check" onclick="checkStory(4, 8)">בדוק שלב 4</button>
+        <span id="sc4" style="font-weight:bold; margin-right:10px; color:var(--g)"></span>
+    </div>
+
+    <h2 style="color: var(--a);">📝 מבחן מסכם (60%)</h2>
+    <div id="quizArea"></div>
+
+    <button class="btn btn-final" onclick="submitAndSave()">שדר ציון סופי למערכת</button>
+
+    <div id="finalReport">
+        <h2 id="repStatus"></h2>
+        <p id="repText" style="font-size: 1.3em;"></p>
+    </div>
+</div>
+
+<script>
+    // הגדר כאן את הלינק שקיבלת מגוגל:
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbywUViFiVEvuKPQvV5SuZou9vF8VSUaYu-xq5hGVhZY8pqpL2NwkV8guiR6yWpYMtHQ/exec';
+
+    const glossary = [
+        {f: "🌐 תשתיות ו-IT", m: [
+            {t:"בלמ\"ס", d:"בלתי מסווג - מידע גלוי."}, {t:"חומרה", d:"רכיבים פיזיים."}, {t:"PC", d:"מחשב אישי."}, {t:"Windows", d:"מערכת הפעלה."}, {t:"Linux", d:"מערכת הפעלה קוד פתוח."}, {t:"דפדפן", d:"כלי גלישה."}, {t:"LAN", d:"רשת מקומית."}, {t:"WAN", d:"רשת מרחבית."}, {t:"נתב", d:"Router - מקשר רשתות."}, {t:"מתג", d:"Switch - מחבר מכשירים."}, {t:"ענן", d:"מחשוב מרוחק."}, {t:"IP Address", d:"כתובת מזהה ברשת."}, {t:"Domain Name", d:"שם תחום לאתר."}, {t:"בסיס נתונים", d:"אחסון מידע מאורגן."}, {t:"תוכנה", d:"אוסף פקודות למחשב."}, {t:"QA", d:"הבטחת איכות."}, {t:"USB", d:"חיבור חומרה חיצוני."}, {t:"באג", d:"תקלה בקוד."}, {t:"Smartphone", d:"טלפון חכם."}, {t:"UI", d:"ממשק משתמש."}
+        ]},
+        {f: "🛡️ סייבר ואבטחה", m: [
+            {t:"SOC", d:"חמ\"ל אבטחה."}, {t:"Firewall", d:"חומת אש."}, {t:"דיוג", d:"Phishing - התחזות."}, {t:"הלבנה", d:"ניקוי קבצים CDR."}, {t:"DLP", d:"מניעת זליגת מידע."}, {t:"הצפנה", d:"קידוד מידע."}, {t:"פורנזיקה", d:"חקירה דיגיטלית."}, {t:"Vulnerability", d:"נקודת תורפה."}, {t:"NAC", d:"בקרת גישה לרשת."}, {t:"PT", d:"בדיקת חדירות."}, {t:"הנדסה חברתית", d:"מניפולציה על אנשים."}, {t:"חתימה דיגיטלית", d:"אימות מקוריות."}, {t:"קוד פתוח", d:"תוכנה גלויה לכל."}, {t:"טלאי", d:"Patch - תיקון."}, {t:"הצפנה", d:"Encryption."}
+        ]},
+        {f: "⚙️ OT ובקרה", m: [
+            {t:"OT", d:"טכנולוגיה תפעולית."}, {t:"PLC", d:"בקר לוגי מיתכנת."}, {t:"SCADA", d:"מערכת פיקוד ובקרה."}, {t:"ICS", d:"מערכות בקרה תעשייתית."}, {t:"BMS", d:"בקרת מבנה."}, {t:"סטקסנט", d:"נוזקה לבקרים."}, {t:"חסינות לחבלה", d:"Tamper proofing."}, {t:"שבב", d:"IC - מעגל משולב."}, {t:"שרשרת אספקה", d:"Supply Chain Attack."}, {t:"תקן", d:"Standard."}
+        ]},
+        {f: "📡 קשר ואלקטרוניקה", m: [
+            {t:"תקשורת אלחוטית", d:"Wireless."}, {t:"GPS", d:"איכון לווייני."}, {t:"מכ\"ם", d:"RADAR."}, {t:"גלי רדיו", d:"RF."}, {t:"האזנת סתר", d:"ניטור אסור."}, {t:"ל\"א", d:"לוחמה אלקטרונית."}, {t:"טלמטריה", d:"שידור מדידות."}, {t:"WiFi", d:"רשת אלחוטית מקומית."}, {t:"Bluetooth", d:"קשר קרוב."}, {t:"איכון", d:"Localization."}, {t:"סים", d:"SIM."}, {t:"לוויין", d:"ממסר בחלל."}, {t:"אנטנה", d:"רכיב שידור."}, {t:"אלמ\"ג", d:"קרינה אלקטרומגנטית."}
+        ]}
+    ];
+
+    const quizQs = [
+        {q:"מהו PLC?", a:"בקר לוגי מיתכנת", o:["בקר לוגי מיתכנת", "שרת דואר", "דפדפן"]},
+        {q:"מה תפקיד ה-CDR?", a:"הלבנת קבצים", o:["הלבנת קבצים", "מחיקת דיסק", "גיבוי ענן"]},
+        {q:"מה ההבדל בין IT ל-OT?", a:"IT למידע, OT לתהליכים פיזיים", o:["IT למידע, OT לתהליכים פיזיים", "אין הבדל", "חומרה מול תוכנה"]},
+        {q:"מהו SOC?", a:"חמ\"ל ניטור אבטחה", o:["חמ\"ל ניטור אבטחה", "סוג של האקר", "פרוטוקול"]},
+        {q:"מהו Phishing?", a:"דיוג - גניבת מידע בהתחזות", o:["דיוג - גניבת מידע בהתחזות", "עדכון תוכנה", "ניקוי וירוסים"]},
+        {q:"מהו DLP?", a:"מניעת אובדן נתונים", o:["מניעת אובדן נתונים", "שיפור מהירות", "גיבוי ענן"]},
+        {q:"מה זה Stuxnet?", a:"נוזקה שפגעה בבקרים", o:["נוזקה שפגעה בבקרים", "מערכת הפעלה", "סוג נתב"]},
+        {q:"מהו NAC?", a:"בקרת גישה לרשת", o:["בקרת גישה לרשת", "מקלדת", "ספק אינטרנט"]},
+        {q:"מהו BMS?", a:"מערכת בקרת מבנה", o:["מערכת בקרת מבנה", "בסיס נתונים", "דפדפן"]},
+        {q:"מהי פורנזיקה?", a:"חקירה ושיחזור ראיות", o:["חקירה ושיחזור ראיות", "כתיבת קוד", "התקנת חומרה"]},
+        {q:"מהו LAN?", a:"רשת מקומית", o:["רשת מקומית", "רשת גלובלית", "ספק אינטרנט"]},
+        {q:"מהי לוחמה אלקטרונית (ל\"א)?", a:"שיבוש או הגנה על גלים", o:["שיבוש או הגנה על גלים", "פריצה למיילים", "הנדסה חברתית"]},
+        {q:"מהו ה-RF?", a:"גלי רדיו", o:["גלי רדיו", "קוד מקור", "בסיס נתונים"]},
+        {q:"מהו ה-IP?", a:"מזהה מכשיר ברשת", o:["מזהה מכשיר ברשת", "שם משתמש", "סיסמה"]},
+        {q:"מהי טלמטריה?", a:"שידור מדידות מרחוק", o:["שידור מדידות מרחוק", "כלי תיקון", "מערכת הפעלה"]},
+        {q:"מהי חתימה דיגיטלית?", a:"אימות מקוריות וזהות", o:["אימות מקוריות וזהות", "סריקת טביעת אצבע", "סיסמת כניסה"]},
+        {q:"מהו קוד פתוח?", a:"תוכנה שקוד המקור שלה גלוי", o:["תוכנה שקוד המקור שלה גלוי", "מחשב ללא סיסמה", "רשת ללא הצפנה"]},
+        {q:"מה תפקיד הנתב (Router)?", a:"ניתוב מידע בין רשתות", o:["ניתוב מידע בין רשתות", "אחסון קבצים", "הצגת תמונות"]},
+        {q:"מהו טלאי (Patch)?", a:"תיקון חולשת אבטחה", o:["תיקון חולשת אבטחה", "וירוס זדוני", "סוג של מסך"]},
+        {q:"מה זה SCADA?", a:"מערכת פיקוד ובקרה", o:["מערכת פיקוד ובקרה", "סוג של האקר", "פרוטוקול דוא\"ל"]}
+    ];
+
+    function init() {
+        const area = document.getElementById('dictArea');
+        glossary.forEach(cat => {
+            area.innerHTML += `<div class="category-title">${cat.f}</div>`;
+            const grid = document.createElement('div');
+            grid.className = 'dict-grid';
+            cat.m.forEach(term => {
+                grid.innerHTML += `<div class="term-card" onclick="this.classList.toggle('open')"><b>${term.t}</b><div class="desc">${term.d}</div></div>`;
+            });
+            area.appendChild(grid);
+        });
+
+        for(let i=1; i<=4; i++) {
+            const bank = document.getElementById('b'+i);
+            const zones = document.querySelectorAll(`#s${i} .drop-zone`);
+            let words = Array.from(zones).map(z => z.getAttribute('data-ans'));
+            words.sort(() => Math.random() - 0.5).forEach(w => {
+                const el = document.createElement('div');
+                el.className = 'drag-item'; el.draggable = true; el.innerText = w;
+                el.ondragstart = e => e.dataTransfer.setData("text", w);
+                bank.appendChild(el);
+            });
+        }
+
+        document.querySelectorAll('.drop-zone').forEach(z => {
+            z.ondragover = e => e.preventDefault();
+            z.ondrop = e => { e.preventDefault(); z.innerText = e.dataTransfer.getData("text"); z.style.color = "#fdbb2d"; };
+        });
+
+        const qArea = document.getElementById('quizArea');
+        quizQs.forEach((q, i) => {
+            qArea.innerHTML += `<div class="quiz-q"><b>${i+1}. ${q.q}</b><br>` + 
+                               q.o.map(o => `<label style="margin-left:20px;"><input type="radio" name="q${i}" value="${o}"> ${o}</label>`).join('') + `</div>`;
+        });
+    }
+
+    let sScores = [0,0,0,0];
+    function checkStory(n, max) {
+        let sc = 0;
+        document.querySelectorAll(`#s${n} .drop-zone`).forEach(z => {
+            if(z.innerText.trim() === z.getAttribute('data-ans')) sc++;
+        });
+        sScores[n-1] = Math.round((sc/max)*100);
+        document.getElementById('sc'+n).innerText = `ציון: ${sScores[n-1]}%`;
+    }
+
+    function submitAndSave() {
+        const uFn = document.getElementById('fn').value;
+        const uLn = document.getElementById('ln').value;
+        const uId = document.getElementById('uid').value;
+        if(!uId || uFn.length < 2) return alert("אנא מלא פרטים");
+
+        let qScore = 0;
+        quizQs.forEach((q, i) => {
+            const sel = document.querySelector(`input[name="q${i}"]:checked`);
+            if(sel && sel.value === q.a) qScore++;
+        });
+        const qPercent = Math.round((qScore / quizQs.length) * 100);
+        const sAvg = Math.round((sScores.reduce((a,b)=>a+b,0) / 4));
+        const total = Math.round((sAvg * 0.4) + (qPercent * 0.6));
+
+        const dataToSend = { name: uFn + " " + uLn, id: uId, s: sAvg, q: qPercent, t: total };
+
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dataToSend)
+        }).then(() => {
+            document.getElementById('repStatus').innerText = total >= 80 ? "✅ עברת בהצלחה!" : "❌ לא עברת";
+            document.getElementById('repText').innerText = `ציון סופי: ${total}% - הנתונים נשלחו למערכת.`;
+            document.getElementById('finalReport').style.display = 'block';
+        }).catch(err => alert("שגיאה בשליחה: " + err));
+    }
+
+    window.onload = init;
+</script>
+
+</body>
+</html>
